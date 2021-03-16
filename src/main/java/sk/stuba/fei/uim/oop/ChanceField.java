@@ -8,8 +8,7 @@ public class ChanceField extends Field{
     private ArrayList <ChanceCard> usedCards;
     //private int cardIndex=0;
 
-    public ChanceField(int position, int type, ArrayList <ChanceCard> cards, ArrayList <ChanceCard> usedCards) { //pridat used cards
-        super(position, type);
+    public ChanceField(int type, ArrayList <ChanceCard> cards, ArrayList <ChanceCard> usedCards) { //pridat used cards
         this.cards=cards;
         this.usedCards=usedCards;
     }
@@ -26,7 +25,7 @@ public class ChanceField extends Field{
         }
         if(cards.get(0).getBack()>0){
             System.out.println("-Vracias sa spat o "+cards.get(0).getBack());
-            player.positionThrow(-cards.get(0).getBack());
+            player.positionUpdate(-cards.get(0).getBack());
         }
         if(cards.get(0).getCredit()>0){
             System.out.println("-Ziskavas kredit "+cards.get(0).getCredit());

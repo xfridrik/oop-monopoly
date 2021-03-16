@@ -1,11 +1,10 @@
 package sk.stuba.fei.uim.oop;
 
 public class Property {
-    private int price;
+    private final int price;
     private boolean occupied;
     private Player owner;
-    private int visitFee;
-    //public int position;
+    private final int visitFee;
 
     public Property(int price, int visitFee) {
         this.price = price;

@@ -1,10 +1,10 @@
 package sk.stuba.fei.uim.oop;
 
 public class ChanceCard {
-    private int prisonDays;
-    private int fee;
-    private int back;
-    private int credit;
+    private final int prisonDays;
+    private final int fee;
+    private final int back;
+    private final int credit;
 
     public ChanceCard(int prisonDays, int fee, int back, int credit) {
         this.prisonDays = prisonDays;

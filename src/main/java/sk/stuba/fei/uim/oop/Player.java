@@ -2,46 +2,40 @@ package sk.stuba.fei.uim.oop;
 /*Trieda obsahuje udaje o hracovi*/
 
 public class Player {
-    private int playerID; //ID (poradie hraca)
+    private final int playerID; //ID (poradie hraca)
     private boolean playerStatus=true; //ak dany hrac prehra - false
     private int accountBalance; //stav uctu
-    private int prisonMoves=0;
-    private int position=0; //pozicia v poli
-    private String name; //meno
-    //private Property[] properties; //Nehnutelnosti hraca
+    private int prisonMoves;
+    private int position; //pozicia v poli
+    private final String name; //meno
 
     public Player(String name, int playerID) {
         this.name=name;
         this.playerID=playerID;
-        accountBalance=20000;
+        accountBalance=200000;
     }
 
     public int getPlayerID() {
         return playerID;
     }
-
     public String getName() {
         return name;
     }
 
-    //hadze kockou a posuva sa
-    public int positionThrow(int throwNum){
+    public void positionUpdate(int throwNum){
         if (throwNum>0){
-            System.out.println("Na tahu je hrac "+ConsoleColors.BLUE_UNDERLINED+getName()+ConsoleColors.RESET);
+            System.out.println("Na tahu je hrac "+getPlayerID()+": "+ConsoleColors.YELLOW_BRIGHT+getName()+" [$"+getAccountBalance()+"]"+ConsoleColors.RESET);
         }
         this.position=(this.position+throwNum);
         if (this.position > 23){
             this.position=this.position%24;
             newLap();
         }
-        return position;
     }
 
     public int diceThrow(){
         return (int)(Math.random()*6) + 1;
-
     }
-
     public int getAccountBalance() {
         return accountBalance;
     }
@@ -68,7 +62,7 @@ public class Player {
         accountBalance=accountBalance-price;
         if(accountBalance<0){
             player.receiveCredit(price+accountBalance);
-            System.out.println(ConsoleColors.RED_BOLD+ConsoleColors.WHITE_BACKGROUND_BRIGHT+"Hrac "+name+" nema dost penazi a prehral!"+ConsoleColors.RESET);
+            System.out.println(ConsoleColors.RED_BOLD+"Hrac "+name+" nema dost penazi a prehral!"+ConsoleColors.RESET);
             this.playerStatus=false;
         }
         else{
@@ -95,8 +89,7 @@ public class Player {
     }
     //Prechod startom
     public void newLap(){
-        accountBalance=accountBalance+1000;
-        System.out.println(ConsoleColors.GREEN+"Hrac dostal +1000 za prechod startom"+ConsoleColors.RESET);
+        accountBalance=accountBalance+15000;
+        System.out.println(ConsoleColors.GREEN+"Hrac dostal +$15000 za prechod startom"+ConsoleColors.RESET);
     }
-   // public void newProperty(Property prop)
 }
