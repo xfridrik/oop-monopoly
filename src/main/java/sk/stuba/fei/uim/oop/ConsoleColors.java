@@ -1,5 +1,5 @@
 package sk.stuba.fei.uim.oop;
-
+//farby pre vypisky
 public class ConsoleColors {
     public static final String RESET = "\033[0m";
 

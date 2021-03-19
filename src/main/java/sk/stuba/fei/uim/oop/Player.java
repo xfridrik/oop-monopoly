@@ -3,11 +3,12 @@ package sk.stuba.fei.uim.oop;
 
 public class Player {
     private final int playerID; //ID (poradie hraca)
+    private final String name; //meno
     private boolean playerStatus=true; //ak dany hrac prehra - false
     private int accountBalance; //stav uctu
-    private int prisonMoves;
+    private int prisonMoves; //zostavajuci pocet kol stravenych vo vazeni
     private int position; //pozicia v poli
-    private final String name; //meno
+
 
     public Player(String name, int playerID) {
         this.name=name;
@@ -23,9 +24,6 @@ public class Player {
     }
 
     public void positionUpdate(int throwNum){
-        if (throwNum>0){
-            System.out.println("Na tahu je hrac "+getPlayerID()+": "+ConsoleColors.YELLOW_BRIGHT+getName()+" [$"+getAccountBalance()+"]"+ConsoleColors.RESET);
-        }
         this.position=(this.position+throwNum);
         if (this.position > 23){
             this.position=this.position%24;
@@ -34,6 +32,8 @@ public class Player {
     }
 
     public int diceThrow(){
+        System.out.println("Na tahu je hrac "+getPlayerID()+": "+ConsoleColors.YELLOW_BRIGHT+getName()+" [$"+getAccountBalance()+"] [pos "+getPosition()+"]"+ConsoleColors.RESET);
+        Zklavesnice.readString("Stlac enter pre hodenie kocky...");
         return (int)(Math.random()*6) + 1;
     }
     public int getAccountBalance() {
@@ -69,6 +69,7 @@ public class Player {
             player.receiveCredit(price);
         }
     }
+    //prijate peniaze
     public void receiveCredit(int value){
         this.accountBalance=this.accountBalance+value;
     }
@@ -79,7 +80,7 @@ public class Player {
         this.position=6;
         prisonMoves=prisonMoves+moves;
     }
-    //tah hraca, ak je vo vazeni - false inak true
+    //tah hraca, ak je vo vazeni - false a decrement, inak true
     public boolean newMove(){
         if (prisonMoves>0){
             prisonMoves--;

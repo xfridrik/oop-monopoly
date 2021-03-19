@@ -1,24 +1,27 @@
 package sk.stuba.fei.uim.oop;
 
 public class RunGame {
-    private int gameover;
+    private int activePlayers;
     private Player[] players;
-    private int lap=0;
+    private int lap;
     private int numOfPlayers;
     private final PlayingBoard board;
     private Player winner;
 
+    //Nacita pocet hracov vacsi ako 1 a inicializuje hracov a hraciu plochu
     public RunGame() {
-        System.out.println(ConsoleColors.WHITE_BACKGROUND+ConsoleColors.BLACK_BOLD+"Vitaj v hre MonopolyLite! Zadaj pocet hracov (>1)"+ConsoleColors.RESET);
+        System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT+ConsoleColors.BLACK_BOLD+"Vitaj v hre MonopolyLite!"+ConsoleColors.RESET);
         while (numOfPlayers<2){
-            numOfPlayers=Zklavesnice.readInt(ConsoleColors.WHITE_BACKGROUND+ConsoleColors.BLACK_BOLD+"Zadaj pocet hracov (>1)"+ConsoleColors.RESET);
+            numOfPlayers=Zklavesnice.readInt("Zadaj pocet hracov (>1)");
         }
-        gameover=numOfPlayers;
+        activePlayers =numOfPlayers;
         playerInitialize();
         board=new PlayingBoard();
+        board.getBoardPositions();
         play();
     }
 
+    //Vytvori objekty pre hracov a umozni zadat meno
     private void playerInitialize(){
         players=new Player[numOfPlayers];
         for (int i=0;i<numOfPlayers;i++){
@@ -28,10 +31,11 @@ public class RunGame {
         winner=players[0];
     }
 
+    //kontroluje podmienky - viac aktivnych hracov ako 1, ci hrac neprehral alebo nie je vo vazeni - potom aktualizuje poziciu a vykona action na danom policku
     private void play(){
-        while(gameover>1){
+        while(activePlayers >1){
             lap++;
-            for(Player player:players){
+            for(Player player:players){ //prechadzanie cez hracov
                 if(player.getplayerStatus()){ //kontrola prehry
                     if(player.newMove()){ //kontrola vazenia
                         int throwNum=player.diceThrow();
@@ -39,18 +43,18 @@ public class RunGame {
                         System.out.println(ConsoleColors.BLUE_BOLD+"Tah "+lap+". Hrac "+player.getName()+" hodil "+throwNum+" a je na pozicii "+player.getPosition()+ConsoleColors.RESET);
                         board.getBoard()[player.getPosition()].action(player);
                         System.out.println(ConsoleColors.BLUE_BOLD+"Hrac "+player.getName()+" skoncil tah, zostatok na ucte: $"+player.getAccountBalance()+ConsoleColors.RESET);
-                        gameover=0;
+                        activePlayers =0;
                         for(Player inGamePlayer:players){
                             if(inGamePlayer.getplayerStatus()){
-                                gameover++;
+                                activePlayers++;
                                 winner=inGamePlayer;
                             }
                         }
-                        if(!(gameover>1)){
+                        if(!(activePlayers >1)){
                             break;
                         }
                         else {
-                            String accept = Zklavesnice.readString(ConsoleColors.CYAN_BRIGHT + "Stlac enter pre pokracovanie..." + ConsoleColors.RESET);
+                            Zklavesnice.readString(ConsoleColors.CYAN_BRIGHT + "Stlac enter pre pokracovanie..." + ConsoleColors.RESET);
                             System.out.println("-------------------");
                         }
                     }

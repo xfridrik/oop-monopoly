@@ -1,7 +1,7 @@
 package sk.stuba.fei.uim.oop;
 
 import java.util.ArrayList;
-
+//inicializacia balika kariet a hracich policok
 public class PlayingBoard {
     private final Field[] board;
 
@@ -39,13 +39,30 @@ public class PlayingBoard {
         board[21]=new PropertyField(90000,11000);
         board[23]=new PropertyField(300000,40000);
 
-        board[4]=new ChanceField(4,cards, usedCards);
-        board[7]=new ChanceField(7,cards, usedCards);
-        board[15]=new ChanceField(15,cards, usedCards);
-        board[22]=new ChanceField(22,cards, usedCards);
+        board[4]=new ChanceField(cards, usedCards);
+        board[7]=new ChanceField(cards, usedCards);
+        board[15]=new ChanceField(cards, usedCards);
+        board[22]=new ChanceField(cards, usedCards);
     }
 
     public Field[] getBoard() {
         return board;
+    }
+    public void getBoardPositions(){
+        System.out.println("ROZLOZENIE HRACEJ PLOCHY:");
+        int pos=0;
+        for (Field field:board){
+            if (field instanceof CornerField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko "+ConsoleColors.YELLOW_BRIGHT+((CornerField) field).getType()+ConsoleColors.RESET);
+            }
+            if (field instanceof ChanceField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.RED+" SANCA"+ConsoleColors.RESET);
+            }
+            if (field instanceof PropertyField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.BLUE_BOLD+" PROPERTY"+ConsoleColors.RESET);
+            }
+            pos++;
+        }
+        System.out.println("____________________");
     }
 }

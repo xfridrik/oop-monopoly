@@ -1,14 +1,13 @@
 package sk.stuba.fei.uim.oop;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
+//used cards su karty ktore uz boli v hre, ak sa cards minu used cards sa do nich presunu a vymazu
 public class ChanceField extends Field{
-    private ArrayList <ChanceCard> cards;
-    private ArrayList <ChanceCard> usedCards;
-    //private int cardIndex=0;
+    private final ArrayList <ChanceCard> cards;
+    private final ArrayList <ChanceCard> usedCards;
 
-    public ChanceField(int type, ArrayList <ChanceCard> cards, ArrayList <ChanceCard> usedCards) { //pridat used cards
+    public ChanceField(ArrayList <ChanceCard> cards, ArrayList <ChanceCard> usedCards) {
         this.cards=cards;
         this.usedCards=usedCards;
     }

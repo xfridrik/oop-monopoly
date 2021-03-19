@@ -1,5 +1,5 @@
 package sk.stuba.fei.uim.oop;
-
+//obsahuje majetok a akcie k nemu
 public class PropertyField extends Field{
     private final Property property;
 
@@ -20,7 +20,7 @@ public class PropertyField extends Field{
         }
         else if(player.getAccountBalance()>=this.property.getPrice()){
             System.out.println("Hrac "+player.getName()+" moze kupit majetok za $"+this.property.getPrice()+". Zostatok na ucte: $"+player.getAccountBalance());
-            String accept=Zklavesnice.readString("zadaj 'yes' pre nakup, nieco ine pre nekupenie nehnutelnosti");
+            String accept=Zklavesnice.readString("zadaj '"+ConsoleColors.GREEN+"yes"+ConsoleColors.RESET+"' pre nakup, nieco ine pre nekupenie nehnutelnosti");
             if (accept.compareTo("yes")==0){
                 if(this.property.buy(player)){
                     System.out.println(ConsoleColors.GREEN+"USPESNY NAKUP!"+ConsoleColors.RESET);

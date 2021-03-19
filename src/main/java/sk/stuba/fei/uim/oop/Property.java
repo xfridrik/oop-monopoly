@@ -10,7 +10,6 @@ public class Property {
         this.price = price;
         this.visitFee = visitFee;
     }
-//UPRAVIT ABY DALO OWNEROVI
 
     public Player getOwner() {
         return owner;
@@ -18,7 +17,6 @@ public class Property {
 
     public int getFee(){
         if (owner.getplayerStatus()){
-           // owner.receiveCredit(visitFee);
             return visitFee;
         }
         return 0;

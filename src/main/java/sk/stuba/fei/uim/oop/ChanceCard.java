@@ -1,5 +1,5 @@
 package sk.stuba.fei.uim.oop;
-
+//karta moze nadobudnut 4 rozne atributy - vazenie, poplatok, presun spat na dalsie kolo a peniaze
 public class ChanceCard {
     private final int prisonDays;
     private final int fee;
