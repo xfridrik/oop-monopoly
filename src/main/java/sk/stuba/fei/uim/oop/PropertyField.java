@@ -7,6 +7,7 @@ public class PropertyField extends Field{
         property=new Property(price, visitFee);
     }
 
+    @Override
     public  void  action(Player player){
         if(this.property.getOccupiedStatus()){
             if(player.getPlayerID()==this.property.getOwner().getPlayerID()){

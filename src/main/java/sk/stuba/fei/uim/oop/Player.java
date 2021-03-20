@@ -9,11 +9,10 @@ public class Player {
     private int prisonMoves; //zostavajuci pocet kol stravenych vo vazeni
     private int position; //pozicia v poli
 
-
     public Player(String name, int playerID) {
         this.name=name;
         this.playerID=playerID;
-        accountBalance=200000;
+        accountBalance=150000;
     }
 
     public int getPlayerID() {
@@ -90,7 +89,7 @@ public class Player {
     }
     //Prechod startom
     public void newLap(){
-        accountBalance=accountBalance+15000;
-        System.out.println(ConsoleColors.GREEN+"Hrac dostal +$15000 za prechod startom"+ConsoleColors.RESET);
+        accountBalance=accountBalance+10000;
+        System.out.println(ConsoleColors.GREEN+"Hrac dostal +$10000 za prechod startom"+ConsoleColors.RESET);
     }
 }

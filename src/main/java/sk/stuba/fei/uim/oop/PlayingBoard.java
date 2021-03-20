@@ -17,10 +17,10 @@ public class PlayingBoard {
         cards.add(new ChanceCard(0,0,0,15000));
 
         board = new Field[24];
-        board[0]=new CornerField(CornerTypes.START);
-        board[6]=new CornerField(CornerTypes.PRISON);
-        board[12]=new CornerField(CornerTypes.PAYOUT);
-        board[18]=new CornerField(CornerTypes.POLICE);
+        board[0]=new StartField();
+        board[6]=new PrisonField();
+        board[12]=new PayoutField();
+        board[18]=new PoliceField();
 
         board[1]=new PropertyField(5000,500);
         board[2]=new PropertyField(15000,1000);
@@ -52,14 +52,23 @@ public class PlayingBoard {
         System.out.println("ROZLOZENIE HRACEJ PLOCHY:");
         int pos=0;
         for (Field field:board){
-            if (field instanceof CornerField){
-                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko "+ConsoleColors.YELLOW_BRIGHT+((CornerField) field).getType()+ConsoleColors.RESET);
-            }
-            if (field instanceof ChanceField){
-                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.RED+" SANCA"+ConsoleColors.RESET);
-            }
             if (field instanceof PropertyField){
-                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.BLUE_BOLD+" PROPERTY"+ConsoleColors.RESET);
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.RED+" MAJETOK"+ConsoleColors.RESET);
+            }
+            else if (field instanceof ChanceField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.BLUE_BOLD+" SANCA"+ConsoleColors.RESET);
+            }
+            else if (field instanceof StartField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.YELLOW_BRIGHT+" START"+ConsoleColors.RESET);
+            }
+            else if (field instanceof PoliceField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.YELLOW_BRIGHT+" POLICIA"+ConsoleColors.RESET);
+            }
+            else if (field instanceof PrisonField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.YELLOW_BRIGHT+" VAZENIE"+ConsoleColors.RESET);
+            }
+            else if (field instanceof PayoutField){
+                System.out.println("pozicia "+ConsoleColors.CYAN_BRIGHT+pos+ConsoleColors.RESET+" policko"+ConsoleColors.YELLOW_BRIGHT+" PLTABA DANI"+ConsoleColors.RESET);
             }
             pos++;
         }

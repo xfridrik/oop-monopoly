@@ -12,6 +12,7 @@ public class ChanceField extends Field{
         this.usedCards=usedCards;
     }
 
+    @Override
     public void action(Player player){
         if(cards.isEmpty()){
             cards.addAll(usedCards);
