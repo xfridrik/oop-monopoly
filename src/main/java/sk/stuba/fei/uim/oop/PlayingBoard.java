@@ -48,7 +48,7 @@ public class PlayingBoard {
     public Field[] getBoard() {
         return board;
     }
-    public void getBoardPositions(){
+    public void printBoardPositions(){
         System.out.println("ROZLOZENIE HRACEJ PLOCHY:");
         int pos=0;
         for (Field field:board){
