@@ -4,7 +4,7 @@ package sk.stuba.fei.uim.oop;
 public class Player {
     private final int playerID; //ID (poradie hraca)
     private final String name; //meno
-    private boolean playerStatus=true; //ak dany hrac prehra - false
+    private boolean playerStatus; //ak dany hrac prehra - false
     private int accountBalance; //stav uctu
     private int prisonMoves; //zostavajuci pocet kol stravenych vo vazeni
     private int position; //pozicia v poli
@@ -12,6 +12,7 @@ public class Player {
     public Player(String name, int playerID) {
         this.name=name;
         this.playerID=playerID;
+        playerStatus=true;
         accountBalance=150000;
     }
 
