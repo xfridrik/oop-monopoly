@@ -1,7 +1,7 @@
 package sk.stuba.fei.uim.oop;
 
 import java.io.*;
-
+//zmeneny len text vypisu na riadku 61
 public class Zklavesnice
 {
 
@@ -58,7 +58,7 @@ public class Zklavesnice
         }
         catch (Exception e)
         {
-            System.out.println("nepodarilo sa");
+            System.out.println("musis zadat cele cislo!");
             n = readInt(napis_pre_uzivatela);
         }
 

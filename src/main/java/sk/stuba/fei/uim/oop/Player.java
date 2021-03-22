@@ -1,6 +1,8 @@
 package sk.stuba.fei.uim.oop;
 /*Trieda obsahuje udaje o hracovi*/
 
+import java.util.Random;
+
 public class Player {
     private final int playerID; //ID (poradie hraca)
     private final String name; //meno

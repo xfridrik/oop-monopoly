@@ -9,12 +9,12 @@ public class PlayingBoard {
 
         ArrayList<ChanceCard> cards = new ArrayList<>();
         ArrayList<ChanceCard> usedCards = new ArrayList<>();
-        cards.add(new ChanceCard(3,0,0,0));
-        cards.add(new ChanceCard(1,10000,0,0));
-        cards.add(new ChanceCard(0,0,3,0));
-        cards.add(new ChanceCard(0,40000,0,0));
-        cards.add(new ChanceCard(0,0,0,30000));
-        cards.add(new ChanceCard(0,0,0,15000));
+        cards.add(new PrisonCard(3,15000));
+        cards.add(new FeeCard(40000));
+        cards.add(new CreditCard(10000));
+        cards.add(new BackCard(3));
+        cards.add(new PrisonCard(2,10000));
+        cards.add(new FeeCard(15000));
 
         board = new Field[24];
         board[0]=new StartField();
