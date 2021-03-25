@@ -38,7 +38,7 @@ public class RunGame {
         while(activePlayers >1){
             lap++;
             for(Player player: players){ //prechadzanie cez hracov
-                if(player.getplayerStatus()){ //kontrola prehry
+                if(player.getPlayerStatus()){ //kontrola prehry
                     if(player.newMove()){ //kontrola vazenia
 
                         int throwNum=player.diceThrow();
@@ -50,7 +50,7 @@ public class RunGame {
 
                         activePlayers = 0;
                         for(Player inGamePlayer: players){
-                            if(inGamePlayer.getplayerStatus()){
+                            if(inGamePlayer.getPlayerStatus()){
                                 activePlayers++;
                                 winner=inGamePlayer;
                             }

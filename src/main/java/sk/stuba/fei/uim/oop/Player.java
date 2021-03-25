@@ -75,7 +75,7 @@ public class Player {
     public void receiveCredit(int value){
         this.accountBalance=this.accountBalance+value;
     }
-    public boolean getplayerStatus(){
+    public boolean getPlayerStatus(){
         return playerStatus;
     }
     public void goPrison(int moves){

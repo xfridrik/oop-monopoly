@@ -16,7 +16,7 @@ public class Property {
     }
 
     public int getFee(){
-        if (owner.getplayerStatus()){
+        if (owner.getPlayerStatus()){
             return visitFee;
         }
         return 0;
@@ -27,7 +27,7 @@ public class Property {
     public boolean getOccupiedStatus(){
         if(occupied){
             //ked hrac prehral
-            if (!owner.getplayerStatus()){
+            if (!owner.getPlayerStatus()){
                 occupied=false;
             }
         }
