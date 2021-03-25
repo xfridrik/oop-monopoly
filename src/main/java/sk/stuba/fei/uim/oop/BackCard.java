@@ -9,7 +9,7 @@ public class BackCard extends ChanceCard{
 
     @Override
     public void chanceAction(Player player) {
-        System.out.println("-ÚTEK! Buduce kolo zacinas o "+backFields+" policka blizsie k startu");
+        System.out.println("-UTEK! Buduce kolo zacinas o "+backFields+" policka blizsie k startu");
         player.positionUpdate(-backFields);
     }
 }

@@ -9,6 +9,7 @@ public class PropertyField extends Field{
 
     @Override
     public  void  action(Player player){
+        //property je kupena
         if(this.property.getOccupiedStatus()){
             if(player.getPlayerID()==this.property.getOwner().getPlayerID()){
                 System.out.println("Hrac je na vlastnom pozemku");
@@ -19,6 +20,7 @@ public class PropertyField extends Field{
                 System.out.println("Hrac "+player.getName()+" zaplatil. Novy zostatok na ucte: $"+player.getAccountBalance());
             }
         }
+        //property je volna
         else if(player.getAccountBalance()>=this.property.getPrice()){
             System.out.println("Hrac "+player.getName()+" moze kupit majetok za $"+this.property.getPrice()+". Zostatok na ucte: $"+player.getAccountBalance());
             String accept=Zklavesnice.readString("zadaj '"+ConsoleColors.GREEN+"yes"+ConsoleColors.RESET+"' pre nakup, nieco ine pre nekupenie nehnutelnosti");

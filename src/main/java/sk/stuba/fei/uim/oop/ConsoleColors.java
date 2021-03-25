@@ -12,8 +12,6 @@ public class ConsoleColors {
     public static final String GREEN_BOLD = "\033[1;32m";
     public static final String BLUE_BOLD = "\033[1;34m";
 
-    public static final String WHITE_BACKGROUND = "\033[47m";
-
     public static final String YELLOW_BRIGHT = "\033[0;93m";
     public static final String CYAN_BRIGHT = "\033[0;96m";
 
