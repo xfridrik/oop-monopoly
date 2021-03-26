@@ -1,8 +1,6 @@
 package sk.stuba.fei.uim.oop;
 /*Trieda obsahuje udaje o hracovi*/
 
-import java.util.Random;
-
 public class Player {
     private final int playerID; //ID (poradie hraca)
     private final String name; //meno
@@ -78,6 +76,7 @@ public class Player {
     public boolean getPlayerStatus(){
         return playerStatus;
     }
+
     public void goPrison(int moves){
         this.position=6;
         prisonMoves=prisonMoves+moves;
